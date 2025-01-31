@@ -10,11 +10,16 @@ class ComposerStaticInit7decbb3a7e30e3e54e0c053117461b90
         'M' => 
         array (
             'Model\\' => 6,
+            'MVC\\' => 4,
         ),
         'I' => 
         array (
             'Intervention\\Image\\' => 19,
             'Intervention\\Gif\\' => 17,
+        ),
+        'C' => 
+        array (
+            'Controlers\\' => 11,
         ),
     );
 
@@ -23,6 +28,10 @@ class ComposerStaticInit7decbb3a7e30e3e54e0c053117461b90
         array (
             0 => __DIR__ . '/../..' . '/models',
         ),
+        'MVC\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/',
+        ),
         'Intervention\\Image\\' => 
         array (
             0 => __DIR__ . '/..' . '/intervention/image/src',
@@ -30,6 +39,10 @@ class ComposerStaticInit7decbb3a7e30e3e54e0c053117461b90
         'Intervention\\Gif\\' => 
         array (
             0 => __DIR__ . '/..' . '/intervention/gif/src',
+        ),
+        'Controlers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controllers',
         ),
     );
 

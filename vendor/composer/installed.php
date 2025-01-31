@@ -3,7 +3,7 @@
         'name' => 'tetos/bienesraices',
         'pretty_version' => 'dev-mmainmvc',
         'version' => 'dev-mmainmvc',
-        'reference' => '4af113ff55bb4cd95d90b7fb0babf70dbbf5badf',
+        'reference' => '4d568aa63f30dd86e031043ef5ed35990f91645f',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -31,7 +31,7 @@
         'tetos/bienesraices' => array(
             'pretty_version' => 'dev-mmainmvc',
             'version' => 'dev-mmainmvc',
-            'reference' => '4af113ff55bb4cd95d90b7fb0babf70dbbf5badf',
+            'reference' => '4d568aa63f30dd86e031043ef5ed35990f91645f',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
