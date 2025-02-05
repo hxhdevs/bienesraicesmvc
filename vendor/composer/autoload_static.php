@@ -19,7 +19,7 @@ class ComposerStaticInit7decbb3a7e30e3e54e0c053117461b90
         ),
         'C' => 
         array (
-            'Controlers\\' => 11,
+            'Controllers\\' => 12,
         ),
     );
 
@@ -40,7 +40,7 @@ class ComposerStaticInit7decbb3a7e30e3e54e0c053117461b90
         array (
             0 => __DIR__ . '/..' . '/intervention/gif/src',
         ),
-        'Controlers\\' => 
+        'Controllers\\' => 
         array (
             0 => __DIR__ . '/../..' . '/controllers',
         ),

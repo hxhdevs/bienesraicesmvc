@@ -10,5 +10,5 @@ return array(
     'MVC\\' => array($baseDir . '/'),
     'Intervention\\Image\\' => array($vendorDir . '/intervention/image/src'),
     'Intervention\\Gif\\' => array($vendorDir . '/intervention/gif/src'),
-    'Controlers\\' => array($baseDir . '/controllers'),
+    'Controllers\\' => array($baseDir . '/controllers'),
 );
