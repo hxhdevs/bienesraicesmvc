@@ -6,7 +6,11 @@ use MVC\Router;
 class PropiedadController{
 
     public static function index(Router $router){
-        $router->render('propiedades/admin');
+        $router->render('propiedades/admin',[
+            'mensaje'=>1,
+            'propiedades'=>[1,2,3],
+            'mensajes'=> 'Hola mensaje'
+        ]);
     }
 
     public static function crear(){

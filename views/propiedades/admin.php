@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>New Page</h1>
+    <h1><?php dep($mensaje) ?> </h1>
+    <h1><?php dep($propiedades) ?> </h1>
+    <h1><?php dep($mensajes) ?> </h1>
 </body>
 </html>
