@@ -1,15 +1,21 @@
 <?php
 
 namespace Controllers;
+
+use Model\Propiedad;
+use Model\Vendedor;
 use MVC\Router;
 
 class PropiedadController{
 
     public static function index(Router $router){
+        $vendedores = Vendedor::all();
+        $propiedades = Propiedad::all();
+        $resultado = null;
         $router->render('propiedades/admin',[
-            'mensaje'=>1,
-            'propiedades'=>[1,2,3],
-            'mensajes'=> 'Hola mensaje'
+            'vendedores'=>$vendedores,
+            'propiedades'=>$propiedades,
+            'resultado'=>$resultado
         ]);
     }
 

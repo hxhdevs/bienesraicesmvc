@@ -1,13 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1><?php dep($mensaje) ?> </h1>
-    <h1><?php dep($propiedades) ?> </h1>
-    <h1><?php dep($mensajes) ?> </h1>
-</body>
-</html>
+<main class="contenedor seccion">
+        <h1>Administrador de bienes raices</h1>
+        <?php
+            $mensaje = mostrarNotificaciones(intval($resultado));
+            if ($mensaje) {?>
+                <p class="alerta exito"><?php echo s($mensaje) ?></p>
+            <?php } ?>
+
+        <a href="/bienesraices/admin/propiedades/crear.php" class="boton boton-verde">Nueva propiedad</a>
+        <a href="/bienesraices/admin/vendedores/crear.php" class="boton boton-amarillo">Nuevo vendedor</a>
+        <h2>Propiedades</h2>
+        <table class="propiedades">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>Imagen</th>
+                    <th>Precio</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php foreach ($propiedades as $propiedad): ?>
+                <tr>
+                    <td><?php echo $propiedad->id;?> </td>
+                    <td><?php echo $propiedad->titulo;?></td>
+                    <td><img src="../../public/imagenes/<?php echo $propiedad->imagen.'.jpg'?>" class="imagen-tabla"></td>
+                    <td><?php echo $propiedad->precio;?></td>
+                    <td>
+                        <form method="POST" class="w-100">
+                            <input type="hidden" name="id" value="<?php echo $propiedad->id ?>">
+                            <input type="hidden" name="tipo" value="propiedad">
+                            <input type="submit" class="boton-rojo-block" value="Eliminar">
+                        </form>
+                        <a href="actualizar.php?id=<?php echo $propiedad->id;?>" class="boton-amarillo-block">Actualizar</a>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
+        <h2>Vendedores</h2>
+        <table class="propiedades">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Telefono</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php foreach ($vendedores as $vendedor): ?>
+                <tr>
+                    <td><?php echo $vendedor->id;?> </td>
+                    <td><?php echo $vendedor->nombre .' '. $vendedor->apellido;?></td>
+                    <td><?php echo $vendedor->telefono;?></td>
+                    <td>
+                        <form method="POST" class="w-100">
+                            <input type="hidden" name="id" value="<?php echo $vendedor->id ?>">
+                            <input type="hidden" name="tipo" value="vendedor">
+                            <input type="submit" class="boton-rojo-block" value="Eliminar">
+                        </form>
+                        <a href="../vendedores/actualizar.php?id=<?php echo $vendedor->id;?>" class="boton-amarillo-block">Actualizar</a>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </main>
