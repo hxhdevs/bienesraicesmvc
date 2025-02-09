@@ -19,8 +19,13 @@ class PropiedadController{
         ]);
     }
 
-    public static function crear(){
-        echo 'Creatind data';
+    public static function crear(Router $router){
+        $propiedad = new Propiedad;
+        $vendedores = Vendedor::all();
+        $router->render('propiedades/crear',[
+            'propiedad'=>$propiedad,
+            'vendedores'=>$vendedores
+        ]);
     }
     
     public static function actualizar(){
