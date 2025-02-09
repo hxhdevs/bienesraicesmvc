@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7decbb3a7e30e3e54e0c053117461b90",
+    "content-hash": "fd270cde13981dbe2c078e6486318292",
     "packages": [
         {
             "name": "intervention/gif",

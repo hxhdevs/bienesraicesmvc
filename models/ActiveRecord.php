@@ -32,7 +32,7 @@ class ActiveRecord {
         $query.= "')";
         $resultado = self::$db->query($query);
         if ($resultado) {
-            header('Location: /bienesraices/admin/propiedades/index.php?resultado=1');
+            header('Location: /admin?resultado=1');
         }
     }
 
