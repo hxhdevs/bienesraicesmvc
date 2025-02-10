@@ -12,13 +12,19 @@ class VendedoresController{
     }
 
     public static function crear(Router $router){
-        $vendedor = new Vendedor();
         $errores = Vendedor::getErrores();
-        $resultado = $_GET['resultado'] ?? null;
+        $vendedor = new Vendedor();
+        if ($_SERVER['REQUEST_METHOD']==='POST') {
+            $vendedor = new Vendedor($_POST['vendedor']);
+            $errores = $vendedor->validar();
+
+            if (empty($errores)) {
+                $vendedor->guardar();
+            }
+        }
         $router->render('vendedores/crear',[
-            'vendedor'=>$vendedor,
             'errores'=>$errores,
-            'resultado'=>$resultado
+            'vendedor'=>$vendedor
         ]);
     }
     
