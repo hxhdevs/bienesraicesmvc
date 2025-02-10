@@ -49,9 +49,11 @@ class ActiveRecord {
         $query .="WHERE id='".self::$db->escape_string($this->id)."'" ;
         $query .=" LIMIT 1;";
         // dep($query);
+        ob_start();
         $resultado = self::$db->query($query);
-        if ($resultado) {
-            header('Location: /bienesraices/admin/propiedades/index.php?resultado=2');
+        if ($resultado){
+            header('location:/admin?resultado=2');
+            exit;
         }
     }
 
@@ -61,7 +63,7 @@ class ActiveRecord {
 
         if ($resultado) {
             $this->borrarImagen();
-            header('location: ../../admin/propiedades/index.php?resultado=3');
+            header('Location: /admin?resultado=3');
         }
     }
 

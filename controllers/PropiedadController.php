@@ -66,5 +66,24 @@ class PropiedadController{
             'vendedores'=>$vendedores,
             'errores' => $errores
         ]);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $args = $_POST['propiedad'];
+            $propiedad->sincronizar($args);
+            
+            $errores = $propiedad->validar();
+            $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
+            if ($_FILES['propiedad']['tmp_name']['imagen']) {
+                $manager = new Image(Driver::class);
+                $image = $manager->read($_FILES['propiedad']['tmp_name']['imagen'])->cover(800, 600);
+                $propiedad->setImagen($nombreImagen);
+            }
+            if (empty($errores)) {
+                if ($_FILES['propiedad']['tmp_name']['imagen']) {
+                    $image->save(CARPETA_IMAGENES.$nombreImagen);
+                }
+                    $propiedad->guardar();
+            }
+        }
     }
 }
