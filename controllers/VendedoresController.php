@@ -11,8 +11,15 @@ class VendedoresController{
        echo 'index vendedor';
     }
 
-    public static function crear(){
-        echo 'Creando vendedor';
+    public static function crear(Router $router){
+        $vendedor = new Vendedor();
+        $errores = Vendedor::getErrores();
+        $resultado = $_GET['resultado'] ?? null;
+        $router->render('vendedores/crear',[
+            'vendedor'=>$vendedor,
+            'errores'=>$errores,
+            'resultado'=>$resultado
+        ]);
     }
     
     public static function actualizar(){
