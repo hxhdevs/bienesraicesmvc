@@ -32,10 +32,23 @@ class VendedoresController{
         $errores = Vendedor::getErrores();
         $id = validarORedireccionar('/admin');
         $vendedor = Vendedor::find($id);
-        $router->render('vendedores/crear',[
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $args = $_POST['vendedor'];
+            $vendedor->sincronizar($args);
+            $errores = $vendedor->validar();
+            if (empty($errores)) {
+                $vendedor->guardar();
+            }
+        }
+        
+        $router->render('vendedores/actualizar',[
             'errores'=>$errores,
             'vendedor'=>$vendedor
         ]);
+
+        
     }
 
     public static function eliminar(){
