@@ -1,3 +1,4 @@
+
         <div class="contenedor-anuncios">
             <?php foreach($propiedades as $propiedad) { ?>
             <div class="anuncio">
@@ -23,7 +24,7 @@
                         </li>
                     </ul>
 
-                    <a href="/propiedad?id=<?php echo $propiedad->id;?>" class="boton boton-amarillo-block">
+                    <a href="anuncio.php?id=<?php echo $propiedad->id;?>" class="boton boton-amarillo-block">
                         Ver Propiedad
                     </a>
                 </div>
@@ -34,4 +35,5 @@
         <div class="ver-todas alinear-derecha">
             <a href="anuncios.php" class="boton-verde">Ver Todas</a>
         </div>
+        
     </section>

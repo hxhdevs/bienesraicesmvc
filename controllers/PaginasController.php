@@ -25,8 +25,14 @@ class PaginasController{
        ]);
     }
 
-    public static function propiedades(){
-       echo 'propiedades';
+    public static function propiedades(Router $router){
+      $propiedades = Propiedad::all();
+      $inicio = true;
+
+       $router->render('paginas/index',[
+            'propiedades' => $propiedades,
+            'inicio' => $inicio
+       ]);
     }
 
     public static function propiedad(){
