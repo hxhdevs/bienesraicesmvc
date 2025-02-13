@@ -24,7 +24,7 @@
                         </li>
                     </ul>
 
-                    <a href="anuncio.php?id=<?php echo $propiedad->id;?>" class="boton boton-amarillo-block">
+                    <a href="/propiedad?id=<?php echo $propiedad->id;?>" class="boton boton-amarillo-block">
                         Ver Propiedad
                     </a>
                 </div>
@@ -33,7 +33,7 @@
         </div><!-- .contenedor-anuncios-->
 
         <div class="ver-todas alinear-derecha">
-            <a href="anuncios.php" class="boton-verde">Ver Todas</a>
+            <a href="/propiedades" class="boton-verde">Ver Todas</a>
         </div>
         
     </section>

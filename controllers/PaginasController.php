@@ -27,16 +27,21 @@ class PaginasController{
 
     public static function propiedades(Router $router){
       $propiedades = Propiedad::all();
-      $inicio = true;
+      // $inicio = true;
 
-       $router->render('paginas/index',[
-            'propiedades' => $propiedades,
-            'inicio' => $inicio
+       $router->render('/paginas/index',[
+            'propiedades' => $propiedades
+            // 'inicio' => $inicio
        ]);
     }
 
-    public static function propiedad(){
-       echo 'propiedad';
+    public static function propiedad(Router $router){
+      $id = validarORedireccionar('/propiedades');
+      $propiedad = Propiedad::find($id);
+
+      $router->render('/paginas/anuncio',[
+          'propiedad' => $propiedad
+      ]);
     }
 
     public static function blog(){
