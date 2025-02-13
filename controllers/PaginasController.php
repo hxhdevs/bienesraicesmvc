@@ -17,8 +17,12 @@ class PaginasController{
        ]);
     }
 
-    public static function nosotros(){
-       echo 'nosotros';
+    public static function nosotros(Router $router){
+      $inicio = true;
+
+       $router->render('paginas/nosotros',[
+            'inicio' => $inicio
+       ]);
     }
 
     public static function propiedades(){
