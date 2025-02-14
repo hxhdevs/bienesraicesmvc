@@ -54,8 +54,9 @@ class PaginasController{
       $router->render('paginas/entrada');
     }
 
-    public static function contacto(){
-       echo 'contacto';
+    public static function contacto(Router $router){
+      $router->render('paginas/contacto');
+      dep($_POST);
     }
 
     
