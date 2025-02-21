@@ -19,8 +19,8 @@
                 <label for="email">E-mail:</label>
                 <input type="email" placeholder="Tu email " id="email" name="contacto[email]" required>
 
-                <label for="telefono">Nombre:</label>
-                <input type="text" placeholder="Tu telefono " id="telefono" name="contacto[email]">
+                <label for="telefono">Telefono:</label>
+                <input type="text" placeholder="Tu telefono " id="telefono" name="contacto[telefono]">
 
                 <label for="mensaje">Mensaje:</label>
                 <textarea id="mensaje" name="contacto[mensaje]"></textarea>

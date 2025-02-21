@@ -4,6 +4,7 @@ namespace Controllers;
 
 use Model\Propiedad;
 use MVC\Router;
+use PHPMailer\PHPMailer\PHPMailer;
 
 class PaginasController{
 
@@ -55,11 +56,43 @@ class PaginasController{
     }
 
     public static function contacto(Router $router){
+      if ($_SERVER['REQUEST_METHOD'] ==='POST') {
+         $mail = new PHPMailer();//Creando una instancia de PHPMailer
+         //COnfigurando SMPT
+         $mail->isSMTP();
+         $mail->Host='sandbox.smtp.mailtrap.io';
+         $mail->SMTPAuth = true;
+         $mail->Username='ac7c49566a38e2';
+         $mail->Password='7bd373a5c5d92e';
+         $mail->SMTPSecure = 'tls';
+         $mail->Port=465;
+
+         //Configurando el correo
+         $mail->setFrom('Jordisonnicolas@gmail.com');
+         $mail->addAddress('Jordisonnicolas@gmail.com');
+         $mail->Subject ='Tienes un nuevo mensaje de HXHdevs';
+
+         //Habilitando HTML
+         $mail->isHTML(true);
+         $mail->CharSet='UTF-8';
+
+         //Definir el contenido
+         $contenido ='<html><p>Tienes un nuevo mensaje</p></html> ';
+         $mail->Body=$contenido;
+         $mail->AltBody='Esto es un texto alternativo sin HTML';
+        // dep($mail);
+         if ($mail->send()) {
+          echo "Mensaje enviado correctamente";
+         }else{
+          echo "El mensaje no se pudo enviar...". $mail->ErrorInfo;
+         }
+         
+      }
       $router->render('paginas/contacto');
-      dep($_POST);
     }
 
     
 
     
 }
+// dvqj rbqz owcp jcrs
