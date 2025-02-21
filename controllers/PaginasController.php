@@ -77,7 +77,18 @@ class PaginasController{
          $mail->CharSet='UTF-8';
 
          //Definir el contenido
-         $contenido ='<html><p>Tienes un nuevo mensaje</p></html> ';
+         $contenido ='<html><p>Tienes un nuevo mensaje</p>
+                      <p>Nombre_ '.$respuestas['nombre'].'</p>
+                      <p>Email: '.$respuestas['email'].'</p>
+                      <p>Telefono: '.$respuestas['telefono'].'</p>
+                      <p>Mensaje: '.$respuestas['mensaje'].'</p>
+                      <p>Tipo: '.$respuestas['tipo'].'</p>
+                      <p>Precio: '.$respuestas['precio'].'</p>
+                      <p>Contacto: '.$respuestas['contacto'].'</p>
+                      <p>Fecha: '.$respuestas['fecha'].'</p>
+                      <p>Hora: '.$respuestas['hora'].'</p>
+                      <p></html> </p>';
+
          $mail->Body=$contenido;
          $mail->AltBody='Esto es un texto alternativo sin HTML';
         // dep($mail);
