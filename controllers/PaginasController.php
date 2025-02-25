@@ -57,6 +57,9 @@ class PaginasController{
 
     public static function contacto(Router $router){
       if ($_SERVER['REQUEST_METHOD'] ==='POST') {
+        $respuestas = $_POST['contacto'];
+        // dep($_POST);
+        // die();
          $mail = new PHPMailer();//Creando una instancia de PHPMailer
          //COnfigurando SMPT
          $mail->isSMTP();
@@ -78,7 +81,7 @@ class PaginasController{
 
          //Definir el contenido
          $contenido ='<html><p>Tienes un nuevo mensaje</p>
-                      <p>Nombre_ '.$respuestas['nombre'].'</p>
+                      <p>Nombre: '.$respuestas['nombre'].'</p>
                       <p>Email: '.$respuestas['email'].'</p>
                       <p>Telefono: '.$respuestas['telefono'].'</p>
                       <p>Mensaje: '.$respuestas['mensaje'].'</p>
