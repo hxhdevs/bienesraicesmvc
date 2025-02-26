@@ -1,0 +1,23 @@
+<?php
+namespace Controllers;
+use MVC\Router;
+use Model\Admin;
+
+class LoginController{
+    public static function login(Router $router){
+        $errores=[];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+           echo 'Autenticado' ;
+        }
+
+        $router ->render('auth/login',[
+            'errores' => $errores
+        ]);
+    }
+
+    public function logout(){
+        echo 'From logout';
+    }
+}
+
+?>
