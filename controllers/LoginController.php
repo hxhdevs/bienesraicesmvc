@@ -12,7 +12,12 @@ class LoginController{
            $errores = $auth->validar();
 
            if (empty($errores)) {
-
+            $resultado = $auth->existeUsuario();
+            if (!$resultado) {
+                $errores = Admin::getErrores();
+            }else{
+                
+            }
            }
         }
 
