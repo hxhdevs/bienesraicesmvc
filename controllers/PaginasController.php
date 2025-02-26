@@ -56,6 +56,7 @@ class PaginasController{
     }
 
     public static function contacto(Router $router){
+      $mensaje = null;
       if ($_SERVER['REQUEST_METHOD'] ==='POST') {
         $respuestas = $_POST['contacto'];
         // dep($_POST);
@@ -78,31 +79,38 @@ class PaginasController{
          //Habilitando HTML
          $mail->isHTML(true);
          $mail->CharSet='UTF-8';
-
+        // dep($_POST);
          //Definir el contenido
          $contenido ='<html><p>Tienes un nuevo mensaje</p>
-                      <p>Nombre: '.$respuestas['nombre'].'</p>
-                      <p>Email: '.$respuestas['email'].'</p>
+                      <p>Nombre: '.$respuestas['nombre'].'</p>';
+         if ($respuestas['contacto'] === 'telefono') {
+          $contenido.='<p>Eligio ser contactado por telefono</p>
                       <p>Telefono: '.$respuestas['telefono'].'</p>
-                      <p>Mensaje: '.$respuestas['mensaje'].'</p>
+                      <p>Fecha: '.$respuestas['fecha'].'</p>
+                      <p>Hora: '.$respuestas['hora'].'</p>';
+         }else{
+          $contenido.='<p>Eligio ser contactado por email</p>
+                      <p>Email: '.$respuestas['email'].'</p>';
+         }
+         $contenido.='<p>Mensaje: '.$respuestas['mensaje'].'</p>
                       <p>Tipo: '.$respuestas['tipo'].'</p>
                       <p>Precio: '.$respuestas['precio'].'</p>
                       <p>Contacto: '.$respuestas['contacto'].'</p>
-                      <p>Fecha: '.$respuestas['fecha'].'</p>
-                      <p>Hora: '.$respuestas['hora'].'</p>
                       <p></html> </p>';
 
          $mail->Body=$contenido;
          $mail->AltBody='Esto es un texto alternativo sin HTML';
         // dep($mail);
          if ($mail->send()) {
-          echo "Mensaje enviado correctamente";
+          $mensaje = "Mensaje enviado correctamente";
          }else{
-          echo "El mensaje no se pudo enviar...". $mail->ErrorInfo;
+          $mensaje = "El mensaje no se pudo enviar...". $mail->ErrorInfo;
          }
          
       }
-      $router->render('paginas/contacto');
+      $router->render('paginas/contacto',[
+        'mensaje'=>$mensaje
+      ]);
     }
 
     
