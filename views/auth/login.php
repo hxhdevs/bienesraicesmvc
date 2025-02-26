@@ -12,10 +12,10 @@
                 <legend>Email y password</legend>
 
                 <label for="email">E-mail</label>
-                <input type="email" name="email" placeholder="Tu email" id="email" required>
+                <input type="email" name="email" placeholder="Tu email" id="email" >
 
                 <label for="password">Password</label>
-                <input type="password" name="password" placeholder="Tu password" id="password" required>
+                <input type="password" name="password" placeholder="Tu password" id="password" >
             </fieldset>
 
             <input type="submit" value="Iniciar sesion" class="boton boton-verde">
