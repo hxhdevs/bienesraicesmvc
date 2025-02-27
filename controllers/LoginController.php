@@ -19,7 +19,7 @@ class LoginController{
             }else{
                 $autenticado = $auth->comprobarPassword($resultado);
                 if ($autenticado) {
-                    # code...
+                    $auth->autenticar();
                 }else{
                     $errores = Admin::getErrores();
                 }
