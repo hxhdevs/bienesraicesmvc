@@ -32,8 +32,10 @@ class LoginController{
         ]);
     }
 
-    public function logout(){
-        echo 'From logout';
+    public static function logout(){
+        session_start();
+        $_SESSION =[];
+        header('Location: /');
     }
 }
 
